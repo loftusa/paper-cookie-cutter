@@ -35,203 +35,37 @@
 \usepackage{enumitem}
 \usepackage{graphicx}
 
-
-\title{Middle-of-the-road length title, plus a fun name that sticks in people's minds}
-
-\author{%
-Alexander Loftus\thanks{Equal contribution. Correspondence to \texttt{alexl@northeastern.edu}.} \\
-Northeastern University \\
-\And
-David Bau$^*$ \\
-Northeastern University \\
-}
-
-
-\begin{document}
 % Taking various advice about paper-writing from people who are good at writing papers and condensing it into a template. Inspiration from: 
   % - https://cs.stanford.edu/people/widom/paper-writing.html
   % - https://karpathy.github.io/2016/09/07/phd/
 
-\maketitle
-
-
-\begin{abstract}
-\label{abstract}
-
-State the problem, your approach and solution, and the main contributions of the paper. Include little if any background and motivation. Be factual but comprehensive. The material in the abstract should not be repeated later word for word in the paper.
-
-This paper can be found at \url{https://accompanyingwebsite.baulab.info/}.
-
-\end{abstract}
-
 % Be ambitious with the problem. a 10x more impactful and important problem is often at most only 2-3 times harder to solve. 10x thinking forces you to think out of the box, to confront the real limitations of an approach, to think from first principles, to change the strategy completely, to innovate. Aspire to improve something by 100\% or more.
 
+%%% BEGIN DOCUMENT
+\title{Middle-of-the-road length title, plus a fun name that sticks in people's minds}
+\input{text/authors}
 
-\section{Introduction}
-\label{introduction}
+\begin{document}
+\maketitle
+\addtolength{\tabcolsep}{-5pt}
 
-% coherent top level narrative
-% describing what I want to do in comments
-% before I write the paper
-% to organize thoughts
+% beginning of paper
+\input{text/abstract}
+\input{text/intro}
+\input{text/related-work}
 
-Roughly one page total. One paragraph for each of the below. Organize each paragraph around a single concrete point stated in the first sentence that is then supported in the rest of the paragraph.
+% Main section describing model/method and core contribution
+\input{text/body}
+\input{text/experiments}
+\input{text/conclusion}
+\input{text/future_work}
+\input{text/acknowledgements}
 
-\begin{enumerate}
-\item What is the problem?
-\item Why is it interesting and important?
-\item Why is it hard? (E.g., why do naive approaches fail?)
-\item Why hasn't it been solved before? (Or, what's wrong with previous proposed solutions? How does mine differ?)
-\item What are the key components of my approach and results? Also include any specific limitations.
-\end{enumerate}
+% Make all citations complete and consistent. Do not just copy random inconsistent BibTex (or other) entries from the web and call it a day. Check over the final bibliography carefully and make sure every entry looks right.
+\bibliography{anthology}
+\bibliographystyle{icml2022}
 
-\subsection{Summary of Contributions}
-\label{contributionsummary}
-
-The major contributions of this paper are:
-
-\begin{itemize}
-    \item Contribution 1
-    \item Contribution 2
-    \item Contribution 3
-\end{itemize}
-
-The rest of the paper is structured as follows: Section \ref{sec:contribution1} describes Contribution 1. Section \ref{sec:contribution2} explains Contribution 2. Finally, Contribution 3 is presented in Section \ref{sec:contribution3}.
-
-\begin{figure}[h]
-\centering
-\begin{minipage}{0.55\linewidth}
-    \centering
-    % If you want to frame the image, uncomment the next line and comment out the original \includegraphics line
-    % \fbox{\includegraphics[width=\linewidth]{figs/figure.png}}
-    \includegraphics[width=\linewidth]{figs/pullfigure.png} 
-\end{minipage}
-\caption{Well-designed pull/hook figure on page 1 or 2 to bring the reader in and convey the central point of the paper}
-\label{fig:system}
-\end{figure}
-
-
-\section{Related Work}
-\label{related}
-
-Roughly 1 page. Good density of citations - not too sparse but not too crowded.
-
-Keep this here if related work can be short yet detailed enough, or if it's critical to take a strong defensive stance about previous work right away. In this case Related Work can be either a subsection at the end of the Introduction, or its own Section 2.
-
-Put this section at the end if it can be summarized quickly early on (in the Introduction or Preliminaries), or if sufficient comparisons require the technical content of the paper. In this case Related Work should appear just before the Conclusions, possibly in a more general section "Discussion and Related Work".
-
-
-\section{Main section describing model/method and core contribution}
-\label{body}
-
-Organize the paper around a single core contribution with surgical precision. Do not add additional fluff.
-
-Some general guidelines:
-
-\textbf{Guideline \#1}: A clear new important technical contribution should have been articulated by the time the reader finishes page 3 (i.e., a quarter of the way through the paper).
-
-\textbf{Guideline \#2}: Every section of the paper should tell a story. (Don't, however, fall into the common trap of telling the entire story of how you arrived at your results. Just tell the story of the results themselves.) The story should be linear, keeping the reader engaged at every step and looking forward to the next step. There should be no significant interruptions -- those can go in the Appendix; see below.
-
-Aside from these guidelines, which apply to every paper, the structure of the body varies a lot depending on content. Important components are:
-
-\begin{itemize}
-
-    \item \textbf{Running Example}: When possible, use a running example throughout the paper. It can be introduced either as a subsection at the end of the Introduction, or its own Section 2 or 3 (depending on Related Work).
-    \item \textbf{Preliminaries}: This section, which follows the Introduction and possibly Related Work and/or Running Example, sets up notation and terminology that is not part of the technical contribution. One important function of this section is to delineate material that's not original but is needed for the paper. Be concise -- remember Guideline \#1.
-    \item \textbf{Content}: The meat of the paper includes algorithms, system descriptions, new language constructs, analyses, etc. Whenever possible use a "top-down" description: readers should be able to see where the material is going, and they should be able to skip ahead and still get the idea.
-\end{itemize}
-
-
-\subsection{method explanation}
-Method/model description with technical section somewhere with math details.
-
-\subsection{more sections of the paper}
-Explain what is being done in the section. Explain what the core challenges are. Explain what a baseline approach is or what others have done before. Motivate and explain what I'm doing
-
-\subsection{more sections of the paper}
-Explain what is being done in the section. Explain what the core challenges are. Explain what a baseline approach is or what others have done before. Motivate and explain what I'm doing
-
-
-\section{Experiments}
-\label{experiments}
-
-A set of experiments that usefully explore how good/interesting the method/model/central investigation of the paper is, and which tell a clear and cohesive story.
-
-Results tables with lots of numbers and some of them \textbf{bold}.
-
-Options for things to measure:
-\begin{itemize}
-    \item runtime
-    \item sensitivity to important parameters
-    \item scalability in various aspects: data size, problem complexity, etc
-\end{itemize}
-
-\begin{table}[ht]
-\label{table:reconstruction_table}
-\centering
-\begin{tabular}{lccc}
-\hline
-Metric1 & Metric2 & Metric3 & Metric4 \\
-\hline
-Method1 (ours) & \textbf{0.011834} & \textbf{57.287} & 0.99965 \\
-Method2 & 0.013030 & 56.450 & \textbf{0.99959} \\
-Method3 & 0.034077 & 47.778 & 0.99569 \\
-\end{tabular}
-\caption{Results table with lots of numbers and some of them bold}
-\end{table}
-
-Options for things to show:
-\begin{itemize}
-    \item Absolute performance
-    \item Relative performance to naive approaches
-    \item Relative performance to previous approaches
-    \item Relative performance among different proposed approaches
-\end{itemize}
-
-\begin{figure}[h]
-\centering
-\begin{minipage}{0.3\linewidth}
-    \centering
-    % If you want to frame the image, uncomment the next line and comment out the original \includegraphics line
-    % \fbox{\includegraphics[width=\linewidth]{figs/figure.png}}
-    \includegraphics[width=\linewidth]{figs/systemfigure.png} 
-\end{minipage}
-\caption{System figure clearly showing technical details of measurements made by experiments.}
-\label{fig:system}
-\end{figure}
-
-
-\section{Conclusion}
-\label{conclusion}
-
-Short summarizing paragraph. Under no circumstances should the paragraph simply repeat material from the Abstract or Introduction. In some cases it's possible to now make the original claims more concrete, e.g., by referring to quantitative performance results.
-
-
-\section{Future Work}
-
-Show how the work new research directions. Use bullet lists. A couple of things to keep in mind:
-
-\begin{itemize}
-    \item Say if we're actively engaged in follow-up work, say so. E.g.: "We are currently extending the algorithm to... blah blah, and preliminary results are encouraging." This statement serves to mark your territory.
-
-    \item Conversely, be aware that some researchers look to Future Work sections for research topics. 
-\end{itemize}
-
-\section{Acknowledgements}
-
-Acknowledge anyone who contributed in any way: through discussions, feedback on drafts, implementation, etc. If in doubt about whether to include someone, include them.
-
-\section{Citations}
-
-Make all citations complete and consistent. Do not just copy random inconsistent BibTex (or other) entries from the web and call it a day. Check over your final bibliography carefully and make sure every entry looks right.
-
-\section{Appendices}
-Appendices should contain detailed proofs and algorithms only. Appendices can be crucial for overlength papers, but are still useful otherwise. Think of appendices as random-access substantiation of underlying gory details. As a rule of thumb:
-
-\begin{itemize}
-    \item Appendices should not contain any material necessary for understanding the contributions of the paper.
-    \item Appendices should contain all material that most readers would not be interested in.
-\end{itemize}
+\input{text/appendices}
 
 % general notes
 % - always release code. Will dramatically increase citations and make code better due to fear of public shaming from bad code
